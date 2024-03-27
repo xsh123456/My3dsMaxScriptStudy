@@ -48,6 +48,9 @@ fn createDotNetWindow =
 -- 调用函数以创建并显示窗体
 createDotNetWindow()
 
+-- 新增测试语句
+    print "git"
+
 )
 
 
