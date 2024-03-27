@@ -9,47 +9,48 @@ autoUndoEnabled:true
 (
 fn createDotNetWindow = 
 (
-    -- ´´½¨´°Ìå
+    -- åˆ›å»ºçª—ä½“
     local myForm = dotNetObject "System.Windows.Forms.Form"
     myForm.StartPosition = (dotNetClass "System.Windows.Forms.FormStartPosition").CenterScreen
     myForm.Size = dotNetObject "System.Drawing.Size" 200 40
     myForm.Text = "DotNet Window"
     myForm.FormBorderStyle = (dotNetClass "System.Windows.Forms.FormBorderStyle").None
 
-    -- ´´½¨°´Å¥²¢ÉèÖÃÎÄ±¾
+    -- åˆ›å»ºæŒ‰é’®å¹¶è®¾ç½®æ–‡æœ¬
     local myButton = dotNetObject "System.Windows.Forms.Button"
     myButton.Text = "Hover and Release Me"
     myButton.Dock = (dotNetClass "System.Windows.Forms.DockStyle").Fill
 
-    -- Ìí¼ÓÊó±êÊÍ·Å£¨MouseUp£©ÊÂ¼ş´¦ÀíÆ÷
+    -- æ·»åŠ é¼ æ ‡é‡Šæ”¾ï¼ˆMouseUpï¼‰äº‹ä»¶å¤„ç†å™¨
     fn onMouseUp sender args =
     (
         print "Mouse Button Released"
-        sender.Parent.Close() -- ¹Ø±Õ°´Å¥µÄ¸¸´°¿Ú£¬¼´myForm
+        sender.Parent.Close() -- å…³é—­æŒ‰é’®çš„çˆ¶çª—å£ï¼Œå³myForm
     )
     dotNet.addEventHandler myButton "MouseUp" onMouseUp
 
-    -- Ìí¼ÓÊó±êĞüÍ££¨MouseEnter£©ÊÂ¼ş´¦ÀíÆ÷
+    -- æ·»åŠ é¼ æ ‡æ‚¬åœï¼ˆMouseEnterï¼‰äº‹ä»¶å¤„ç†å™¨
     fn onMouseEnter sender args =
     (
         subObjectLevel = 1
 		if subObjectLevel == 1 then sender.Parent.Close()
-        -- Äã¿ÉÒÔÔÚÕâÀïÌí¼Ó¸ü¶àµÄÂß¼­£¬±ÈÈç¸Ä±ä°´Å¥ÑÕÉ«µÈ
+        -- ä½ å¯ä»¥åœ¨è¿™é‡Œæ·»åŠ æ›´å¤šçš„é€»è¾‘ï¼Œæ¯”å¦‚æ”¹å˜æŒ‰é’®é¢œè‰²ç­‰
     )
     dotNet.addEventHandler myButton "MouseEnter" onMouseEnter
 
-    -- ½«°´Å¥Ìí¼Óµ½´°Ìå
+    -- å°†æŒ‰é’®æ·»åŠ åˆ°çª—ä½“
     myForm.Controls.Add(myButton)
 
-    -- ÏÔÊ¾´°Ìå
+    -- æ˜¾ç¤ºçª—ä½“
     myForm.Show()
 )
 
--- µ÷ÓÃº¯ÊıÒÔ´´½¨²¢ÏÔÊ¾´°Ìå
+-- è°ƒç”¨å‡½æ•°ä»¥åˆ›å»ºå¹¶æ˜¾ç¤ºçª—ä½“
 createDotNetWindow()
 
--- ĞÂÔö²âÊÔÓï¾ä
+-- æ–°å¢æµ‹è¯•è¯­å¥
     print "git"
+-- æ›´æ”¹ä¸ºUTF-8
 
 )
 
